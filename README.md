@@ -1,4 +1,3 @@
-# shujuku
 # sqlite
 
 ## 1.安装sqlite
