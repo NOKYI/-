@@ -1,0 +1,7 @@
+MariaDB [(none)]> create user 'yu'@'%'identified by'123';
+Query OK, 0 rows affected (0.011 sec)
+
+MariaDB [mysql]> grant select,delete,update,index,insert on friend.acquaintance to 'yu';
+Query OK, 0 rows affected (0.012 sec)
+
+MariaDB [mysql]> drop user 'yu'@'%';
