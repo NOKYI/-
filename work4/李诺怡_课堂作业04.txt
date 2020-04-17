@@ -1,0 +1,31 @@
+mysql> drop database student;
+
+mysql> create DATABASE work;
+
+mysql> use work;
+Database changed
+mysql> create table course(id int primary key,course_name varchar(15));
+
+mysql> create table design(id int primary key,design_name varchar(15));
+
+mysql> create table teacher(id int primary key,
+    -> teachername varchar(15),
+    -> majorid int,
+    -> index index_teachername(teachername(15)),
+    -> constraint fk_teacher_course foreign key(majorid)references course(id));
+
+mysql> create table design_tea(id int primary key,
+    -> teachername varchar(15),
+    -> majorid int,
+    -> constraint fk_design_teacher_design foreign key(majorid)references design(id));
+
+mysql> create table student(id int primary key,
+    -> studentname varchar(15),
+    -> index index_studentname(studentname(15)),
+    -> majorid int not null,
+    -> majorid2 int not null,
+    -> majorid3 int not null,
+    -> constraint fk_student_teacher foreign key(majorid) references teacher(id),
+    -> constraint fk_student_course foreign key(majorid2) references course(id),
+    -> constraint fk_student_design foreign key(majorid3) references design(id)
+    -> );
